@@ -1,6 +1,6 @@
 Summary:	XML 1.0 parser
 Summary(es):	Parser de XML 1.0
-Summary(pl):	Parser XML 1.0
+Summary(pl):	Analizator sk³adni XML-a 1.0
 Summary(pt_BR):	Biblioteca XML expat
 Summary(ru):	ğÅÒÅÎÏÓÉÍÁÑ ÂÉÂÌÉÏÔÅËÁ ÒÁÚÂÏÒÁ XML (expat)
 Summary(uk):	ğÅÒÅÎÏÓÉÍÁ Â¦ÂÌ¦ÏÔÅËÁ ÒÏÚÂÏÒÕ XML (expat)
@@ -31,7 +31,9 @@ Expat es un parser de XML escrito en C. Pretende conformarse totalmente
 al estándar. Actualmente no es un parser XML validante.
 
 %description -l pl
-Expat to parser XML napisany w jêzyku C.
+Expat to napisany w jêzyku C analizator sk³adni XML-a. D±¿y do pe³nej
+zgodno¶ci ze specyfikacj±. Aktualnie nie jest analizatorem, który
+potwiedza³by zgodno¶æ ze specyfikacj±.
 
 %description -l pt_BR
 Esta é a biblioteca, em C, XML expat, de James Clark. É um analisador
