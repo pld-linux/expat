@@ -2,7 +2,7 @@ Summary:	XML 1.0 parser
 Summary(pl):	XML 1.0 parser
 Name:		expat
 Version:	1.95.2
-Release:	1
+Release:	2
 License:	Thai Open Source Software Center Ltd (distributable)
 Group:		Applications/Publishing/XML
 Group(de):	Applikationen/Publizieren/XML
@@ -14,6 +14,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:	libexpat1_95
 
 %description
 Expat is an XML parser written in C. It aims to be fully conforming.
@@ -30,6 +31,7 @@ Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
+Obsoletes:	libexpat1_95-devel
 
 %description devel
 Expat header files.
