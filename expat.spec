@@ -1,29 +1,20 @@
 Summary:	XML 1.0 parser
-Summary(es):	expat XML library
-Summary(pl):	XML 1.0 parser
+Summary(pl):	Parser XML 1.0
 Summary(pt_BR):	Biblioteca XML expat
 Name:		expat
-Version:	1.95.2
-Release:	3
+Version:	1.95.3
+Release:	1
 License:	Thai Open Source Software Center Ltd (distributable)
 Group:		Applications/Publishing/XML
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/expat/%{name}-%{version}.tar.gz
-Patch0:		%{name}-ac_fix.patch
+Patch0:		%{name}-DESTDIR.patch
 URL:		http://expat.sourceforge.net/
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libexpat1_95
 
 %description
 Expat is an XML parser written in C. It aims to be fully conforming.
 It is currently not a validating XML parser.
-
-%description -l es
-This is James Clark's expat XML parser library in C. It is a stream
-oriented parser that requires setting handlers to deal with the
-structure that the parser discovers in the document.
 
 %description -l pl
 Expat to parser XML napisany w jêzyku C.
@@ -46,17 +37,16 @@ Obsoletes:	libexpat1_95-devel
 Expat header files.
 
 %description devel -l es
-Archivos de inclusión del expat
+Archivos de inclusión del expat.
 
 %description devel -l pl
 Pliki nag³ówkowe do biblioteki expat.
 
 %description devel -l pt_BR
-Arquivos de inclusão do expat
+Arquivos de inclusão do expat.
 
 %package static
 Summary:	Expat static library
-Summary(es):	Expat static libs
 Summary(pl):	Biblioteka statyczna expat
 Summary(pt_BR):	Bibliotecas estáticas para desenvolvimento com a biblioteca expat
 Group:		Development/Libraries
@@ -65,24 +55,19 @@ Requires:	%{name} = %{version}
 %description static
 Expat static library.
 
-%description static -l es
-Expat static libs
-
 %description static -l pl
-Bioblioteka statyczna expat.
+Biblioteka statyczna expat.
 
 %description static -l pt_BR
-Bibliotecas estáticas para desenvolvimento com a biblioteca expat
+Bibliotecas estáticas para desenvolvimento com a biblioteca expat.
 
 %prep
 %setup -q
 %patch0 -p1
 
 %build
-%{__libtoolize}
-aclocal
-%{__autoconf}
 %configure
+
 %{__make}
 
 %install
@@ -90,21 +75,21 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf Changes COPYING README
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_bindir}/*
+%{_mandir}/man1/*
 
 %files devel
 %defattr(644,root,root,755)
-%doc *.gz doc/*
+%doc Changes COPYING README doc/{reference.html,style.css}
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
 %{_includedir}/*
