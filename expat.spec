@@ -2,9 +2,10 @@ Summary:	XML 1.0 parser
 Summary(pl):	XML 1.0 parser
 Name:		expat
 Version:	1.95.1
-Release:	2
+Release:	3
 License:	Thai Open Source Software Center Ltd (distributable)
 Group:		Applications/Publishing/XML
+Group(de):	Applikationen/Publizieren/XML
 Group(pl):	Aplikacje/Publikowanie/XML
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/expat/%{name}-%{version}.tar.gz
 URL:		http://expat.sourceforge.net/
@@ -12,8 +13,8 @@ URL:		http://expat.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Expat is an XML parser written in C. It aims to be fully
-conforming. It is currently not a validating XML parser.
+Expat is an XML parser written in C. It aims to be fully conforming.
+It is currently not a validating XML parser.
 
 %description -l pl
 Expat to parser XML napisany w jêzyku C.
@@ -22,6 +23,7 @@ Expat to parser XML napisany w jêzyku C.
 Summary:	Expat header files
 Summary(pl):	Pliki nag³ówkowe do biblioteki expat
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
@@ -36,6 +38,7 @@ Pliki nag³ówkowe do biblioteki expat.
 Summary:	Expat static library
 Summary(pl):	Biblioteka statyczna expat
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
@@ -56,7 +59,7 @@ Bioblioteka statyczna expat.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-make install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 gzip -9nf Changes COPYING README
 
