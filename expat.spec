@@ -8,7 +8,7 @@ Version:	1.95.5
 Release:	1
 License:	Thai Open Source Software Center Ltd (distributable)
 Group:		Applications/Publishing/XML
-Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/expat/%{name}-%{version}.tar.gz
+Source0:	http://prdownloads.sourceforge.net/expat/%{name}-%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://expat.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
