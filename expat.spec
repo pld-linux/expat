@@ -58,7 +58,7 @@ Summary(pt_BR):	Arquivos de inclusЦo do expat
 Summary(ru):	Хедеры и библиотека, необходимые для программирования с expat
 Summary(uk):	Хедери та б╕бл╕отека, необх╕дн╕ для програмування з expat
 Group:		Development/Libraries
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 Obsoletes:	libexpat1_95-devel
 
 %description devel
@@ -89,7 +89,7 @@ Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com a biblioteca expa
 Summary(ru):	Статическая библиотека для программирования с libexpat
 Summary(uk):	Статична б╕бл╕отека для програмування з libexpat
 Group:		Development/Libraries
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description static
 Expat static library.
