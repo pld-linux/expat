@@ -5,7 +5,8 @@ Summary(ru):	Переносимая библиотека разбора XML (expat)
 Summary(uk):	Переносима б╕бл╕отека розбору XML (expat)
 Name:		expat
 Version:	1.95.6
-Release:	2
+Release:	3
+Epoch:		1
 License:	Thai Open Source Software Center Ltd (distributable)
 Group:		Applications/Publishing/XML
 Source0:	http://dl.sourceforge.net/expat/%{name}-%{version}.tar.gz
@@ -50,7 +51,7 @@ Summary(pt_BR):	Arquivos de inclusЦo do expat
 Summary(ru):	Хедеры и библиотека, необходимые для программирования с expat
 Summary(uk):	Хедери та б╕бл╕отека, необх╕дн╕ для програмування з expat
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 Obsoletes:	libexpat1_95-devel
 
 %description devel
@@ -80,7 +81,7 @@ Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com a biblioteca expa
 Summary(ru):	Статическая библиотека для программирования с libexpat
 Summary(uk):	Статична б╕бл╕отека для програмування з libexpat
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 
 %description static
 Expat static library.
