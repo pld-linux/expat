@@ -1,64 +1,67 @@
-#
-# expat is currently built from sablotron.spec
-# please don't remove this spec
-# /klakier
-#
 Summary:	XML 1.0 parser
 Summary(pl):	XML 1.0 parser
 Name:		expat
-Version:	1.1
+Version:	1.95.0
 Release:	1
-License:	Mozilla Public License Version 1.1 or GPL
-URL:		http://www.jclark.com/xml/expat.html
-Source0:	ftp://ftp.jclark.com/pub/xml/%{name}.zip
-Patch0:		expat.patch
+License:	Thai Open Source Software Center Ltd (distributable)
 Group:		Applications/Publishing/XML
 Group(pl):	Aplikacje/Publikowanie/XML
+Source0:	ftp://download.sourceforge.net/pub/sourceforge/expat/%{name}-%{version}.tar.gz
+URL:		http://expat.sourceforge.net/
 ##Provides:	xmlmf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Expat is an XML 1.0 parser written in C. It aims to be fully
+Expat is an XML parser written in C. It aims to be fully
 conforming. It is currently not a validating XML parser.
 
 %description -l pl
-Expat to parser XML 1.0 napisany w jêzyku C.
+Expat to parser XML napisany w jêzyku C.
 
 %package devel
-Summary:	%{name} header files
-Summary(pl):	Pliki nag³ówkowe %{name}
+Summary:	Expat header files
+Summary(pl):	Pliki nag³ówkowe do biblioteki expat
 Group:		Development/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
 %description devel
-%{name} header files.
+Expat header files.
 
 %description -l pl devel
-Pliki nag³ówkowe %{name}.
+Pliki nag³ówkowe do biblioteki expat.
+
+%package static
+Summary:	Expat static library
+Summary(pl):	Bioblioteka statyczna expat
+Group:		Development/Libraries
+Group(fr):	Development/Librairies
+Group(pl):	Programowanie/Biblioteki
+Requires:	%{name} = %{version}
+
+%description static
+Expat static library.
+
+%description -l pl static
+Bioblioteka statyczna expat.
 
 %prep
-%setup -q -T -c
-unzip -qa %{SOURCE0}
-mv %{name}/* . && rmdir %{name}
-chmod -R a+rX *
-%patch -p1
+%setup -q
 
 %build
-CFLAGS="$RPM_OPT_FLAGS %{?debug:-g -O}"; export CFLAGS
-%{__make} libexpat.a
+%configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_bindir}
-install -d $RPM_BUILD_ROOT%{_libdir}
-install -d $RPM_BUILD_ROOT%{_includedir}
-install libexpat.a $RPM_BUILD_ROOT%{_libdir}
-install xmlwf/xmlwf  $RPM_BUILD_ROOT%{_bindir}
-install xmlparse/xmlparse.h  $RPM_BUILD_ROOT%{_includedir}
-%{!?debug:strip $RPM_BUILD_ROOT%{_bindir}/*}
+
+make install DESTDIR=$RPM_BUILD_ROOT
+
+gzip -9nf Changes COPYING README
+
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -66,8 +69,15 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
+%doc *.gz doc/*
+%attr(755,root,root) %{_libdir}/lib*.so
+%attr(755,root,root) %{_libdir}/lib*.la
 %{_includedir}/*
-%{_libdir}/*.a
+
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/lib*.a
