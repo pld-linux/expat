@@ -1,7 +1,7 @@
 Summary:	XML 1.0 parser
 Summary(pl):	XML 1.0 parser
 Name:		expat
-Version:	1.95.0
+Version:	1.95.1
 Release:	1
 License:	Thai Open Source Software Center Ltd (distributable)
 Group:		Applications/Publishing/XML
