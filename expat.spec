@@ -1,4 +1,5 @@
 Summary:	XML 1.0 parser
+Summary(es):	Parser de XML 1.0
 Summary(pl):	Parser XML 1.0
 Summary(pt_BR):	Biblioteca XML expat
 Summary(ru):	Переносимая библиотека разбора XML (expat)
@@ -24,6 +25,10 @@ Obsoletes:	libexpat1_95
 %description
 Expat is an XML parser written in C. It aims to be fully conforming.
 It is currently not a validating XML parser.
+
+%description -l es
+Expat es un parser de XML escrito en C. Pretende conformarse totalmente
+al estАndar. Actualmente no es un parser XML validante.
 
 %description -l pl
 Expat to parser XML napisany w jЙzyku C.
@@ -76,6 +81,7 @@ Arquivos de inclusЦo do expat.
 
 %package static
 Summary:	Expat static library
+Summary(es):	Biblioteca estАtica de expat
 Summary(pl):	Biblioteka statyczna expat
 Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com a biblioteca expat
 Summary(ru):	Статическая библиотека для программирования с libexpat
@@ -85,6 +91,9 @@ Requires:	%{name} = %{epoch}:%{version}
 
 %description static
 Expat static library.
+
+%description static -l es
+Biblioteca estАtica de expat.
 
 %description static -l pl
 Biblioteka statyczna expat.
