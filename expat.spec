@@ -33,7 +33,7 @@ al estándar. Actualmente no es un parser XML validante.
 %description -l pl
 Expat to napisany w jêzyku C analizator sk³adni XML-a. D±¿y do pe³nej
 zgodno¶ci ze specyfikacj±. Aktualnie nie jest analizatorem, który
-potwiedza³by zgodno¶æ ze specyfikacj±.
+potwiedza³ by zgodno¶æ ze specyfikacj±.
 
 %description -l pt_BR
 Esta é a biblioteca, em C, XML expat, de James Clark. É um analisador
