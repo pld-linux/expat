@@ -11,7 +11,11 @@ Group:		Applications/Publishing/XML
 Source0:	http://dl.sourceforge.net/expat/%{name}-%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-gcc3-c++.patch
+Patch2:		%{name}-ac_fixes.patch
 URL:		http://expat.sourceforge.net/
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libexpat1_95
 
@@ -98,8 +102,12 @@ Bibliotecas estáticas para desenvolvimento com a biblioteca expat.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
 %configure
 
 %{__make}
