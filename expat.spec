@@ -1,3 +1,8 @@
+#
+# expat is currently built from sablotron.spec
+# please don't remove this spec
+# /klakier
+#
 Summary:	XML 1.0 parser
 Summary(pl):	XML 1.0 parser
 Name:		expat
