@@ -79,7 +79,7 @@ Bibliotecas estáticas para desenvolvimento com a biblioteca expat
 %patch0 -p1
 
 %build
-libtoolize --copy --force
+%{__libtoolize}
 aclocal
 %{__autoconf}
 %configure
