@@ -4,7 +4,7 @@ Summary(pt_BR):	Biblioteca XML expat
 Summary(ru):	Переносимая библиотека разбора XML (expat)
 Summary(uk):	Переносима б╕бл╕отека розбору XML (expat)
 Name:		expat
-Version:	1.95.4
+Version:	1.95.5
 Release:	1
 License:	Thai Open Source Software Center Ltd (distributable)
 Group:		Applications/Publishing/XML
