@@ -9,6 +9,7 @@ Release:	2
 License:	Thai Open Source Software Center Ltd (distributable)
 Group:		Applications/Publishing/XML
 Source0:	http://dl.sourceforge.net/expat/%{name}-%{version}.tar.gz
+# Source0-md5: ca78d94e83e9f077b5da2bfe28ba986a
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-gcc3-c++.patch
 Patch2:		%{name}-ac_fixes.patch
