@@ -5,12 +5,13 @@ Summary(ru):	Переносимая библиотека разбора XML (expat)
 Summary(uk):	Переносима б╕бл╕отека розбору XML (expat)
 Name:		expat
 Version:	1.95.6
-Release:	3
+Release:	4
 Epoch:		1
 License:	Thai Open Source Software Center Ltd (distributable)
 Group:		Applications/Publishing/XML
 Source0:	http://dl.sourceforge.net/expat/%{name}-%{version}.tar.gz
 # Source0-md5: ca78d94e83e9f077b5da2bfe28ba986a
+Source1:	%{name}.m4
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-gcc3-c++.patch
 Patch2:		%{name}-ac_fixes.patch
@@ -118,6 +119,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+	
+install -d $RPM_BUILD_ROOT%{_aclocaldir}
+cp %{SOURCE1} $RPM_BUILD_ROOT%{_aclocaldir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -138,6 +142,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
 %{_includedir}/*
+%{_aclocaldir}/*.m4
 
 %files static
 %defattr(644,root,root,755)
