@@ -4,8 +4,8 @@ Summary(pt_BR):	Biblioteca XML expat
 Summary(ru):	Переносимая библиотека разбора XML (expat)
 Summary(uk):	Переносима б╕бл╕отека розбору XML (expat)
 Name:		expat
-Version:	1.95.3
-Release:	3
+Version:	1.95.4
+Release:	1
 License:	Thai Open Source Software Center Ltd (distributable)
 Group:		Applications/Publishing/XML
 Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/expat/%{name}-%{version}.tar.gz
@@ -115,13 +115,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc COPYING Changes README
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
 
 %files devel
 %defattr(644,root,root,755)
-%doc Changes COPYING README doc/{reference.html,style.css}
+%doc doc/{reference.html,style.css}
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
 %{_includedir}/*
