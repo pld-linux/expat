@@ -81,7 +81,7 @@ Bibliotecas estáticas para desenvolvimento com a biblioteca expat
 %build
 libtoolize --copy --force
 aclocal
-autoconf
+%{__autoconf}
 %configure
 %{__make}
 
