@@ -2,14 +2,16 @@ Summary:	XML 1.0 parser
 Summary(pl):	XML 1.0 parser
 Name:		expat
 Version:	1.95.1
-Release:	3
+Release:	8
 License:	Thai Open Source Software Center Ltd (distributable)
 Group:		Applications/Publishing/XML
 Group(de):	Applikationen/Publizieren/XML
 Group(pl):	Aplikacje/Publikowanie/XML
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/expat/%{name}-%{version}.tar.gz
 URL:		http://expat.sourceforge.net/
-##Provides:	xmlmf
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -53,6 +55,9 @@ Bioblioteka statyczna expat.
 %setup -q
 
 %build
+libtoolize --copy --force
+aclocal
+autoconf
 %configure
 %{__make}
 
