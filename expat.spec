@@ -6,7 +6,6 @@ Summary(uk):	Переносима б╕бл╕отека розбору XML (expat)
 Name:		expat
 Version:	1.95.3
 Release:	3
-License:	MIT
 License:	Thai Open Source Software Center Ltd (distributable)
 Group:		Applications/Publishing/XML
 Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/expat/%{name}-%{version}.tar.gz
