@@ -5,10 +5,11 @@ Summary(ru):	Переносимая библиотека разбора XML (expat)
 Summary(uk):	Переносима б╕бл╕отека розбору XML (expat)
 Name:		expat
 Version:	1.95.6
-Release:	2
+Release:	3
 License:	Thai Open Source Software Center Ltd (distributable)
 Group:		Applications/Publishing/XML
 Source0:	http://dl.sourceforge.net/expat/%{name}-%{version}.tar.gz
+# Source0-md5:	ca78d94e83e9f077b5da2bfe28ba986a
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-gcc3-c++.patch
 Patch2:		%{name}-ac_fixes.patch
