@@ -7,7 +7,6 @@ License:	Mozilla Public License Version 1.1 or GPL
 URL:		http://www.jclark.com/xml/expat.html
 Source0:	ftp://ftp.jclark.com/pub/xml/%{name}.zip
 Patch0:		expat.patch
-License:	GPL
 Group:		Applications/Publishing/XML
 Group(pl):	Aplikacje/Publikowanie/XML
 ##Provides:	xmlmf
