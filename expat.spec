@@ -2,7 +2,7 @@ Summary:	XML 1.0 parser
 Summary(pl):	XML 1.0 parser
 Name:		expat
 Version:	1.95.1
-Release:	1
+Release:	2
 License:	Thai Open Source Software Center Ltd (distributable)
 Group:		Applications/Publishing/XML
 Group(pl):	Aplikacje/Publikowanie/XML
@@ -34,7 +34,7 @@ Pliki nag³ówkowe do biblioteki expat.
 
 %package static
 Summary:	Expat static library
-Summary(pl):	Bioblioteka statyczna expat
+Summary(pl):	Biblioteka statyczna expat
 Group:		Development/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
