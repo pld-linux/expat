@@ -5,13 +5,13 @@ Summary(pt_BR):	Biblioteca XML expat
 Summary(ru):	Переносимая библиотека разбора XML (expat)
 Summary(uk):	Переносима б╕бл╕отека розбору XML (expat)
 Name:		expat
-Version:	1.95.7
-Release:	2
+Version:	1.95.8
+Release:	1
 Epoch:		1
 License:	Thai Open Source Software Center Ltd (distributable)
 Group:		Applications/Publishing/XML
 Source0:	http://dl.sourceforge.net/expat/%{name}-%{version}.tar.gz
-# Source0-md5:	2ff59c2a5cbdd21a285c5f343e214fa9
+# Source0-md5:	aff487543845a82fe262e6e2922b4c8e
 Source1:	%{name}.m4
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-ac_fixes.patch
@@ -19,8 +19,8 @@ URL:		http://expat.sourceforge.net/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	libtool
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libexpat1_95
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Expat is an XML parser written in C. It aims to be fully conforming.
@@ -119,6 +119,7 @@ Bibliotecas estАticas para desenvolvimento com a biblioteca expat.
 %build
 %{__libtoolize}
 %{__aclocal}
+%{__autoheader}
 %{__autoconf}
 %configure
 %{__make}
@@ -130,7 +131,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_aclocaldir}
-cp %{SOURCE1} $RPM_BUILD_ROOT%{_aclocaldir}
+install %{SOURCE1} $RPM_BUILD_ROOT%{_aclocaldir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
