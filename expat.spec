@@ -3,6 +3,7 @@ Summary(pl):	XML 1.0 parser
 Name:		expat
 Version:	1.1
 Release:	1
+License:	Mozilla Public License Version 1.1 or GPL
 URL:		http://www.jclark.com/xml/expat.html
 Source0:	ftp://ftp.jclark.com/pub/xml/%{name}.zip
 Patch0:		expat.patch
