@@ -113,6 +113,7 @@ Bibliotecas estáticas para desenvolvimento com a biblioteca expat.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
