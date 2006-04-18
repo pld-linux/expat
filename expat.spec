@@ -14,6 +14,7 @@ Source0:	http://dl.sourceforge.net/expat/%{name}-%{version}.tar.gz
 # Source0-md5:	d945df7f1c0868c5c73cf66ba9596f3f
 Patch0:		%{name}-ac_fixes.patch
 Patch1:		%{name}-am18.patch
+Patch2:		%{name}-soname.patch
 URL:		http://expat.sourceforge.net/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -114,6 +115,7 @@ Bibliotecas estáticas para desenvolvimento com a biblioteca expat.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__libtoolize}
