@@ -12,8 +12,8 @@ License:	Thai Open Source Software Center Ltd (distributable)
 Group:		Applications/Publishing/XML
 Source0:	http://dl.sourceforge.net/expat/%{name}-%{version}.tar.gz
 # Source0-md5:	d945df7f1c0868c5c73cf66ba9596f3f
-Source1:	%{name}.m4
 Patch0:		%{name}-ac_fixes.patch
+Patch1:		%{name}-am18.patch
 URL:		http://expat.sourceforge.net/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -129,7 +129,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_aclocaldir}
-install %{SOURCE1} $RPM_BUILD_ROOT%{_aclocaldir}
+install conftools/expat.m4 $RPM_BUILD_ROOT%{_aclocaldir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -140,18 +140,18 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc COPYING Changes README
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
-%attr(755,root,root) %{_bindir}/*
-%{_mandir}/man1/*
+%attr(755,root,root) %{_bindir}/xmlwf
+%attr(755,root,root) %{_libdir}/libexpat.so.*.*
+%{_mandir}/man1/xmlwf.1*
 
 %files devel
 %defattr(644,root,root,755)
 %doc doc/{reference.html,style.css}
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-%{_includedir}/*
-%{_aclocaldir}/*.m4
+%attr(755,root,root) %{_libdir}/libexpat.so
+%{_libdir}/libexpat.la
+%{_includedir}/expat*.h
+%{_aclocaldir}/expat.m4
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libexpat.a
