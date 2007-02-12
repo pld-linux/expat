@@ -1,9 +1,9 @@
 Summary:	XML 1.0 parser
-Summary(es.UTF-8):   Parser de XML 1.0
-Summary(pl.UTF-8):   Analizator składni XML-a 1.0
-Summary(pt_BR.UTF-8):   Biblioteca XML expat
-Summary(ru.UTF-8):   Переносимая библиотека разбора XML (expat)
-Summary(uk.UTF-8):   Переносима бібліотека розбору XML (expat)
+Summary(es.UTF-8):	Parser de XML 1.0
+Summary(pl.UTF-8):	Analizator składni XML-a 1.0
+Summary(pt_BR.UTF-8):	Biblioteca XML expat
+Summary(ru.UTF-8):	Переносимая библиотека разбора XML (expat)
+Summary(uk.UTF-8):	Переносима бібліотека розбору XML (expat)
 Name:		expat
 Version:	2.0.0
 Release:	3
@@ -52,11 +52,11 @@ Expat -- парсер XML 1.0, написаний на C. Розраховани
 
 %package devel
 Summary:	Expat header files
-Summary(es.UTF-8):   Archivos de inclusión del expat
-Summary(pl.UTF-8):   Pliki nagłówkowe do biblioteki expat
-Summary(pt_BR.UTF-8):   Arquivos de inclusão do expat
-Summary(ru.UTF-8):   Хедеры и библиотека, необходимые для программирования с expat
-Summary(uk.UTF-8):   Хедери та бібліотека, необхідні для програмування з expat
+Summary(es.UTF-8):	Archivos de inclusión del expat
+Summary(pl.UTF-8):	Pliki nagłówkowe do biblioteki expat
+Summary(pt_BR.UTF-8):	Arquivos de inclusão do expat
+Summary(ru.UTF-8):	Хедеры и библиотека, необходимые для программирования с expat
+Summary(uk.UTF-8):	Хедери та бібліотека, необхідні для програмування з expat
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Obsoletes:	libexpat1_95-devel
@@ -83,11 +83,11 @@ Arquivos de inclusão do expat.
 
 %package static
 Summary:	Expat static library
-Summary(es.UTF-8):   Biblioteca estática de expat
-Summary(pl.UTF-8):   Biblioteka statyczna expat
-Summary(pt_BR.UTF-8):   Bibliotecas estáticas para desenvolvimento com a biblioteca expat
-Summary(ru.UTF-8):   Статическая библиотека для программирования с libexpat
-Summary(uk.UTF-8):   Статична бібліотека для програмування з libexpat
+Summary(es.UTF-8):	Biblioteca estática de expat
+Summary(pl.UTF-8):	Biblioteka statyczna expat
+Summary(pt_BR.UTF-8):	Bibliotecas estáticas para desenvolvimento com a biblioteca expat
+Summary(ru.UTF-8):	Статическая библиотека для программирования с libexpat
+Summary(uk.UTF-8):	Статична бібліотека для програмування з libexpat
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
