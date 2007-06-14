@@ -5,20 +5,25 @@ Summary(pt_BR.UTF-8):	Biblioteca XML expat
 Summary(ru.UTF-8):	Переносимая библиотека разбора XML (expat)
 Summary(uk.UTF-8):	Переносима бібліотека розбору XML (expat)
 Name:		expat
-Version:	2.0.0
-Release:	3
+Version:	2.0.1
+Release:	1
 Epoch:		1
 License:	Thai Open Source Software Center Ltd (distributable)
 Group:		Applications/Publishing/XML
 Source0:	http://dl.sourceforge.net/expat/%{name}-%{version}.tar.gz
-# Source0-md5:	d945df7f1c0868c5c73cf66ba9596f3f
+# Source0-md5:	ee8b492592568805593f81f8cdf2a04c
 Patch0:		%{name}-ac_fixes.patch
 Patch1:		%{name}-am18.patch
 Patch2:		%{name}-soname.patch
-URL:		http://expat.sourceforge.net/
+URL:		http://www.libexpat.org/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	libtool
+%ifarch %{x8664} ia64 ppc64 s390x sparc64
+Provides:	libexpat.so.1()(64bit)
+%else
+Provides:	libexpat.so.1
+%endif
 Obsoletes:	libexpat1_95
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -134,6 +139,10 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_aclocaldir}
 install conftools/expat.m4 $RPM_BUILD_ROOT%{_aclocaldir}
 
+# for compatibility with upstream/other distros
+cd $RPM_BUILD_ROOT%{_libdir}
+ln -sf libexpat.so.*.*.* libexpat.so.1
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -144,7 +153,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc COPYING Changes README
 %attr(755,root,root) %{_bindir}/xmlwf
-%attr(755,root,root) %{_libdir}/libexpat.so.*.*
+%attr(755,root,root) %{_libdir}/libexpat.so.*.*.*
+%attr(755,root,root) %{_libdir}/libexpat.so.1
 %{_mandir}/man1/xmlwf.1*
 
 %files devel
