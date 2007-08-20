@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	static_libs	# don't build static library
+#
 Summary:	XML 1.0 parser
 Summary(es.UTF-8):	Parser de XML 1.0
 Summary(pl.UTF-8):	Analizator składni XML-a 1.0
@@ -127,7 +131,8 @@ Bibliotecas estáticas para desenvolvimento com a biblioteca expat.
 %{__aclocal}
 %{__autoheader}
 %{__autoconf}
-%configure
+%configure \
+	%{!?with_static_libs:--disable-static}
 %{__make}
 
 %install
@@ -165,6 +170,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/expat*.h
 %{_aclocaldir}/expat.m4
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libexpat.a
+%endif
