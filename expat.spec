@@ -10,7 +10,7 @@ Summary(ru.UTF-8):	Переносимая библиотека разбора XM
 Summary(uk.UTF-8):	Переносима бібліотека розбору XML (expat)
 Name:		expat
 Version:	2.0.1
-Release:	2
+Release:	3
 Epoch:		1
 License:	Thai Open Source Software Center Ltd (distributable)
 Group:		Applications/Publishing/XML
@@ -142,8 +142,10 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_aclocaldir}
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 install conftools/expat.m4 $RPM_BUILD_ROOT%{_aclocaldir}
 
+cp examples/*.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 # for compatibility with upstream/other distros
 cd $RPM_BUILD_ROOT%{_libdir}
 ln -sf libexpat.so.*.*.* libexpat.so.1
@@ -164,11 +166,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc doc/{reference.html,style.css}
+%doc doc/{reference.html,style.css,*.png}
 %attr(755,root,root) %{_libdir}/libexpat.so
 %{_libdir}/libexpat.la
 %{_includedir}/expat*.h
 %{_aclocaldir}/expat.m4
+%dir %{_examplesdir}/%{name}-%{version}
+%{_examplesdir}/%{name}-%{version}/*
+
 
 %if %{with static_libs}
 %files static
