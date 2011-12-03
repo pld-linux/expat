@@ -1,7 +1,7 @@
 #
 # Conditional build:
 %bcond_without	static_libs	# don't build static library
-#
+
 Summary:	XML 1.0 parser
 Summary(es.UTF-8):	Parser de XML 1.0
 Summary(pl.UTF-8):	Analizator składni XML-a 1.0
@@ -10,11 +10,11 @@ Summary(ru.UTF-8):	Переносимая библиотека разбора XM
 Summary(uk.UTF-8):	Переносима бібліотека розбору XML (expat)
 Name:		expat
 Version:	2.0.1
-Release:	4
+Release:	5
 Epoch:		1
 License:	Thai Open Source Software Center Ltd (distributable)
 Group:		Applications/Publishing/XML
-Source0:	http://dl.sourceforge.net/expat/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/expat/%{name}-%{version}.tar.gz
 # Source0-md5:	ee8b492592568805593f81f8cdf2a04c
 Patch0:		%{name}-ac_fixes.patch
 Patch1:		%{name}-am18.patch
@@ -38,8 +38,8 @@ Expat is an XML parser written in C. It aims to be fully conforming.
 It is currently not a validating XML parser.
 
 %description -l es.UTF-8
-Expat es un parser de XML escrito en C. Pretende conformarse totalmente
-al estándar. Actualmente no es un parser XML validante.
+Expat es un parser de XML escrito en C. Pretende conformarse
+totalmente al estándar. Actualmente no es un parser XML validante.
 
 %description -l pl.UTF-8
 Expat to napisany w języku C analizator składni XML-a. Dąży do pełnej
@@ -146,10 +146,10 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_aclocaldir}
-install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-install conftools/expat.m4 $RPM_BUILD_ROOT%{_aclocaldir}
+cp -p conftools/expat.m4 $RPM_BUILD_ROOT%{_aclocaldir}
 
-cp examples/*.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -p examples/*.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 # for compatibility with upstream/other distros
 cd $RPM_BUILD_ROOT%{_libdir}
 ln -sf libexpat.so.*.*.* libexpat.so.1
@@ -165,6 +165,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc COPYING Changes README
 %attr(755,root,root) %{_bindir}/xmlwf
 %attr(755,root,root) %{_libdir}/libexpat.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libexpat.so.0
 %attr(755,root,root) %{_libdir}/libexpat.so.1
 %{_mandir}/man1/xmlwf.1*
 
@@ -175,9 +176,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libexpat.la
 %{_includedir}/expat*.h
 %{_aclocaldir}/expat.m4
-%dir %{_examplesdir}/%{name}-%{version}
-%{_examplesdir}/%{name}-%{version}/*
-
+%{_examplesdir}/%{name}-%{version}
 
 %if %{with static_libs}
 %files static
