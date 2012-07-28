@@ -9,27 +9,19 @@ Summary(pt_BR.UTF-8):	Biblioteca XML expat
 Summary(ru.UTF-8):	Переносимая библиотека разбора XML (expat)
 Summary(uk.UTF-8):	Переносима бібліотека розбору XML (expat)
 Name:		expat
-Version:	2.0.1
-Release:	5
+Version:	2.1.0
+Release:	0.1
 Epoch:		1
 License:	Thai Open Source Software Center Ltd (distributable)
 Group:		Applications/Publishing/XML
 Source0:	http://downloads.sourceforge.net/expat/%{name}-%{version}.tar.gz
-# Source0-md5:	ee8b492592568805593f81f8cdf2a04c
+# Source0-md5:	dd7dab7a5fea97d2a6a43f511449b7cd
 Patch0:		%{name}-ac_fixes.patch
-Patch1:		%{name}-am18.patch
-Patch2:		%{name}-soname.patch
 Patch3:		%{name}-2.0.1-check_stopped_parser.patch
-Patch4:		%{name}-2.0.1-fix_bug_1990430.patch
 URL:		http://www.libexpat.org/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	libtool
-%ifarch %{x8664} ia64 ppc64 s390x sparc64
-Provides:	libexpat.so.1()(64bit)
-%else
-Provides:	libexpat.so.1
-%endif
 Obsoletes:	libexpat1_95
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -125,10 +117,7 @@ Bibliotecas estáticas para desenvolvimento com a biblioteca expat.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
 %patch3 -p0
-%patch4 -p0
 
 %build
 %{__libtoolize}
@@ -150,9 +139,6 @@ cp -p conftools/expat.m4 $RPM_BUILD_ROOT%{_aclocaldir}
 
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 cp -p examples/*.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-# for compatibility with upstream/other distros
-cd $RPM_BUILD_ROOT%{_libdir}
-ln -sf libexpat.so.*.*.* libexpat.so.1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -165,8 +151,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc COPYING Changes README
 %attr(755,root,root) %{_bindir}/xmlwf
 %attr(755,root,root) %{_libdir}/libexpat.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libexpat.so.0
-%attr(755,root,root) %{_libdir}/libexpat.so.1
+%attr(755,root,root) %ghost %{_libdir}/libexpat.so.1
 %{_mandir}/man1/xmlwf.1*
 
 %files devel
@@ -176,6 +161,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libexpat.la
 %{_includedir}/expat*.h
 %{_aclocaldir}/expat.m4
+%{_pkgconfigdir}/expat.pc
 %{_examplesdir}/%{name}-%{version}
 
 %if %{with static_libs}
