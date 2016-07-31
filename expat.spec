@@ -10,7 +10,7 @@ Summary(ru.UTF-8):	Переносимая библиотека разбора XM
 Summary(uk.UTF-8):	Переносима бібліотека розбору XML (expat)
 Name:		expat
 Version:	2.2.0
-Release:	1
+Release:	2
 Epoch:		1
 License:	Thai Open Source Software Center Ltd (distributable)
 Group:		Applications/Publishing/XML
@@ -114,6 +114,20 @@ Bibliotecas estáticas para desenvolvimento com a biblioteca expat.
 Цей пакет містить статичну бібліотеку, необхідну для написання
 програм, що використовують libexpat.
 
+%package tools
+Summary:	Expat utilities (xmlwf)
+Summary(pl.UTF-8):	Programy narzędziowe do biblioteki Expat (xmlwf)
+Group:		Applications/Text
+Requires:	%{name} = %{version}-%{release}
+
+%description tools
+Expat utilities:
+- xmlwf: determines if an XML document is well-formed.
+
+%description tools -l pl.UTF-8
+Programy narzędziowe do biblioteki Expat:
+- xmlwf: sprawdza, czy dokument XML jest dobrze sformułowany.
+
 %prep
 %setup -q
 %patch0 -p1
@@ -149,10 +163,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc COPYING Changes README
-%attr(755,root,root) %{_bindir}/xmlwf
 %attr(755,root,root) %{_libdir}/libexpat.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libexpat.so.1
-%{_mandir}/man1/xmlwf.1*
 
 %files devel
 %defattr(644,root,root,755)
@@ -169,3 +181,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_libdir}/libexpat.a
 %endif
+
+%files tools
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/xmlwf
+%{_mandir}/man1/xmlwf.1*
