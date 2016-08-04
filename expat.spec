@@ -10,7 +10,7 @@ Summary(ru.UTF-8):	Переносимая библиотека разбора XM
 Summary(uk.UTF-8):	Переносима бібліотека розбору XML (expat)
 Name:		expat
 Version:	2.2.0
-Release:	2
+Release:	3
 Epoch:		1
 License:	Thai Open Source Software Center Ltd (distributable)
 Group:		Applications/Publishing/XML
@@ -118,7 +118,7 @@ Bibliotecas estáticas para desenvolvimento com a biblioteca expat.
 Summary:	Expat utilities (xmlwf)
 Summary(pl.UTF-8):	Programy narzędziowe do biblioteki Expat (xmlwf)
 Group:		Applications/Text
-Requires:	%{name} = %{version}-%{release}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description tools
 Expat utilities:
