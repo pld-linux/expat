@@ -10,14 +10,13 @@ Summary(ru.UTF-8):	Переносимая библиотека разбора XM
 Summary(uk.UTF-8):	Переносима бібліотека розбору XML (expat)
 Name:		expat
 Version:	2.2.0
-Release:	3
+Release:	4
 Epoch:		1
 License:	Thai Open Source Software Center Ltd (distributable)
 Group:		Applications/Publishing/XML
 Source0:	http://downloads.sourceforge.net/expat/%{name}-%{version}.tar.bz2
 # Source0-md5:	2f47841c829facb346eb6e3fab5212e2
 Patch0:		%{name}-ac_fixes.patch
-Patch1:		%{name}-2.0.1-check_stopped_parser.patch
 URL:		http://www.libexpat.org/
 BuildRequires:	autoconf >= 2.58
 BuildRequires:	automake
@@ -131,7 +130,6 @@ Programy narzędziowe do biblioteki Expat:
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p0
 
 %build
 %{__libtoolize}
