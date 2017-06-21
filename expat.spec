@@ -9,13 +9,13 @@ Summary(pt_BR.UTF-8):	Biblioteca XML expat
 Summary(ru.UTF-8):	Переносимая библиотека разбора XML (expat)
 Summary(uk.UTF-8):	Переносима бібліотека розбору XML (expat)
 Name:		expat
-Version:	2.2.0
-Release:	4
+Version:	2.2.1
+Release:	1
 Epoch:		1
-License:	Thai Open Source Software Center Ltd (distributable)
+License:	MIT
 Group:		Applications/Publishing/XML
 Source0:	http://downloads.sourceforge.net/expat/%{name}-%{version}.tar.bz2
-# Source0-md5:	2f47841c829facb346eb6e3fab5212e2
+# Source0-md5:	d9c3baeab58774cefc2f04faf29f2cf8
 Patch0:		%{name}-ac_fixes.patch
 URL:		http://www.libexpat.org/
 BuildRequires:	autoconf >= 2.58
@@ -160,7 +160,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc COPYING Changes README
+%doc AUTHORS COPYING Changes README
 %attr(755,root,root) %{_libdir}/libexpat.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libexpat.so.1
 
