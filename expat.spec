@@ -9,13 +9,13 @@ Summary(pt_BR.UTF-8):	Biblioteca XML expat
 Summary(ru.UTF-8):	Переносимая библиотека разбора XML (expat)
 Summary(uk.UTF-8):	Переносима бібліотека розбору XML (expat)
 Name:		expat
-Version:	2.2.3
+Version:	2.2.4
 Release:	1
 Epoch:		1
 License:	MIT
 Group:		Applications/Publishing/XML
 Source0:	http://downloads.sourceforge.net/expat/%{name}-%{version}.tar.bz2
-# Source0-md5:	f053af63ef5f39bd9b78d01fbc203334
+# Source0-md5:	6e3980aba29a224a9f478d88ac7ec207
 Patch0:		%{name}-ac_fixes.patch
 URL:		http://www.libexpat.org/
 BuildRequires:	autoconf >= 2.58
@@ -136,6 +136,7 @@ Programy narzędziowe do biblioteki Expat:
 %{__aclocal} -I m4
 %{__autoheader}
 %{__autoconf}
+%{__automake}
 %configure \
 	%{!?with_static_libs:--disable-static}
 %{__make}
