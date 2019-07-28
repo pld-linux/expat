@@ -9,19 +9,21 @@ Summary(pt_BR.UTF-8):	Biblioteca XML expat
 Summary(ru.UTF-8):	Переносимая библиотека разбора XML (expat)
 Summary(uk.UTF-8):	Переносима бібліотека розбору XML (expat)
 Name:		expat
-Version:	2.2.6
+Version:	2.2.7
 Release:	1
 Epoch:		1
 License:	MIT
 Group:		Applications/Publishing/XML
-Source0:	http://downloads.sourceforge.net/expat/%{name}-%{version}.tar.bz2
-# Source0-md5:	ca047ae951b40020ac831c28859161b2
-Patch0:		%{name}-ac_fixes.patch
+Source0:	http://downloads.sourceforge.net/expat/%{name}-%{version}.tar.xz
+# Source0-md5:	3659bc0938db78815b5f5a9c24d732aa
 URL:		http://www.libexpat.org/
-BuildRequires:	autoconf >= 2.58
+BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake
 BuildRequires:	docbook2X
-BuildRequires:	libtool
+BuildRequires:	gcc >= 5:3.2
+BuildRequires:	libtool >= 2:2.4
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Obsoletes:	libexpat1_95
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -130,13 +132,12 @@ Programy narzędziowe do biblioteki Expat:
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__libtoolize}
 %{__aclocal} -I m4
-%{__autoheader}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
 	DOCBOOK_TO_MAN=docbook2X2man \
