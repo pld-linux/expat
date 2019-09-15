@@ -9,13 +9,13 @@ Summary(pt_BR.UTF-8):	Biblioteca XML expat
 Summary(ru.UTF-8):	Переносимая библиотека разбора XML (expat)
 Summary(uk.UTF-8):	Переносима бібліотека розбору XML (expat)
 Name:		expat
-Version:	2.2.7
+Version:	2.2.8
 Release:	1
 Epoch:		1
 License:	MIT
 Group:		Applications/Publishing/XML
 Source0:	http://downloads.sourceforge.net/expat/%{name}-%{version}.tar.xz
-# Source0-md5:	3659bc0938db78815b5f5a9c24d732aa
+# Source0-md5:	cdf54239f892fc7914957f10de1e1c70
 URL:		http://www.libexpat.org/
 BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake
