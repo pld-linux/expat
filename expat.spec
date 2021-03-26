@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	static_libs	# don't build static library
+%bcond_without	static_libs	# static library
 
 Summary:	XML 1.0 parser
 Summary(es.UTF-8):	Parser de XML 1.0
@@ -9,13 +9,13 @@ Summary(pt_BR.UTF-8):	Biblioteca XML expat
 Summary(ru.UTF-8):	Переносимая библиотека разбора XML (expat)
 Summary(uk.UTF-8):	Переносима бібліотека розбору XML (expat)
 Name:		expat
-Version:	2.2.10
+Version:	2.3.0
 Release:	1
 Epoch:		1
 License:	MIT
 Group:		Applications/Publishing/XML
 Source0:	http://downloads.sourceforge.net/expat/%{name}-%{version}.tar.xz
-# Source0-md5:	e0fe49a6b3480827c9455e4cfc799133
+# Source0-md5:	1c1b523a8d917e6d9f7af4f8881d8ec5
 URL:		http://www.libexpat.org/
 BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake
@@ -24,7 +24,7 @@ BuildRequires:	gcc >= 5:3.2
 BuildRequires:	libtool >= 2:2.4
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Obsoletes:	libexpat1_95
+Obsoletes:	libexpat1_95 < 2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -64,7 +64,7 @@ Summary(ru.UTF-8):	Хедеры и библиотека, необходимые 
 Summary(uk.UTF-8):	Хедери та бібліотека, необхідні для програмування з expat
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Obsoletes:	libexpat1_95-devel
+Obsoletes:	libexpat1_95-devel < 2
 
 %description devel
 Expat header files.
@@ -176,6 +176,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/expat*.h
 %{_aclocaldir}/expat.m4
 %{_pkgconfigdir}/expat.pc
+%{_libdir}/cmake/expat-%{version}
 %{_examplesdir}/%{name}-%{version}
 
 %if %{with static_libs}
