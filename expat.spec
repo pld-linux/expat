@@ -9,19 +9,20 @@ Summary(pt_BR.UTF-8):	Biblioteca XML expat
 Summary(ru.UTF-8):	Переносимая библиотека разбора XML (expat)
 Summary(uk.UTF-8):	Переносима бібліотека розбору XML (expat)
 Name:		expat
-Version:	2.5.0
+Version:	2.6.2
 Release:	1
 Epoch:		1
 License:	MIT
 Group:		Applications/Publishing/XML
 Source0:	https://downloads.sourceforge.net/expat/%{name}-%{version}.tar.xz
-# Source0-md5:	ac6677b6d1b95d209ab697ce8b688704
+# Source0-md5:	0cb75c8feb842c0794ba89666b762a2d
 URL:		http://www.libexpat.org/
 BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake
 BuildRequires:	docbook2X
 BuildRequires:	gcc >= 5:3.2
 BuildRequires:	libtool >= 2:2.4
+BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Obsoletes:	libexpat1_95 < 2
@@ -139,6 +140,8 @@ Programy narzędziowe do biblioteki Expat:
 %{__autoconf}
 %{__autoheader}
 %{__automake}
+# remove SIZEOF_VOID_P define, see buildconf.sh
+%{__sed} -i -e '/^\/\* The size of `void \*/,/^$/ d' expat_config.h.in
 %configure \
 	DOCBOOK_TO_MAN=docbook2X2man \
 	%{!?with_static_libs:--disable-static}
