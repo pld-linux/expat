@@ -64,7 +64,7 @@ Summary(pt_BR.UTF-8):	Arquivos de inclusão do expat
 Summary(ru.UTF-8):	Хедеры и библиотека, необходимые для программирования с expat
 Summary(uk.UTF-8):	Хедери та бібліотека, необхідні для програмування з expat
 Group:		Development/Libraries
-Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	%{name}%{?_isa} = %{epoch}:%{version}-%{release}
 Obsoletes:	libexpat1_95-devel < 2
 
 %description devel
@@ -95,7 +95,7 @@ Summary(pt_BR.UTF-8):	Bibliotecas estáticas para desenvolvimento com a bibliote
 Summary(ru.UTF-8):	Статическая библиотека для программирования с libexpat
 Summary(uk.UTF-8):	Статична бібліотека для програмування з libexpat
 Group:		Development/Libraries
-Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	%{name}%{?_isa} = %{epoch}:%{version}-%{release}
 
 %description static
 Expat static library.
@@ -121,7 +121,7 @@ Bibliotecas estáticas para desenvolvimento com a biblioteca expat.
 Summary:	Expat utilities (xmlwf)
 Summary(pl.UTF-8):	Programy narzędziowe do biblioteki Expat (xmlwf)
 Group:		Applications/Text
-Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	%{name}%{?_isa} = %{epoch}:%{version}-%{release}
 
 %description tools
 Expat utilities:
