@@ -9,18 +9,19 @@ Summary(pt_BR.UTF-8):	Biblioteca XML expat
 Summary(ru.UTF-8):	Переносимая библиотека разбора XML (expat)
 Summary(uk.UTF-8):	Переносима бібліотека розбору XML (expat)
 Name:		expat
-Version:	2.7.3
+Version:	2.7.4
 Release:	1
 Epoch:		1
 License:	MIT
 Group:		Applications/Publishing/XML
 Source0:	https://downloads.sourceforge.net/expat/%{name}-%{version}.tar.xz
-# Source0-md5:	423975a2a775ff32f12c53635b463a91
+# Source0-md5:	5d3d1e1c829f8fb6f42b8e3e2371afa3
 URL:		http://www.libexpat.org/
 BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake
 BuildRequires:	docbook2X
 BuildRequires:	gcc >= 5:3.2
+BuildRequires:	glibc-headers >= 6:2.36
 BuildRequires:	libtool >= 2:2.4
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
@@ -154,7 +155,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_aclocaldir}
-cp -p conftools/expat.m4 $RPM_BUILD_ROOT%{_aclocaldir}
 
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 cp -p examples/*.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
@@ -177,7 +177,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libexpat.so
 %{_libdir}/libexpat.la
 %{_includedir}/expat*.h
-%{_aclocaldir}/expat.m4
 %{_pkgconfigdir}/expat.pc
 %{_libdir}/cmake/expat-%{version}
 %{_examplesdir}/%{name}-%{version}
