@@ -173,7 +173,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc doc/{reference.html,style.css}
+%doc doc/{ok.min.css,reference.html,style.css}
 %attr(755,root,root) %{_libdir}/libexpat.so
 %{_libdir}/libexpat.la
 %{_includedir}/expat*.h
