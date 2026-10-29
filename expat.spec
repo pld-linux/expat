@@ -1,6 +1,7 @@
 #
 # Conditional build:
 %bcond_without	static_libs	# static library
+%bcond_without	tests	# unit tests
 
 Summary:	XML 1.0 parser
 Summary(es.UTF-8):	Parser de XML 1.0
@@ -10,12 +11,16 @@ Summary(ru.UTF-8):	Переносимая библиотека разбора XM
 Summary(uk.UTF-8):	Переносима бібліотека розбору XML (expat)
 Name:		expat
 Version:	2.9.0
-Release:	1
+Release:	2
 Epoch:		1
 License:	MIT
 Group:		Applications/Publishing/XML
 Source0:	https://downloads.sourceforge.net/expat/%{name}-%{version}.tar.xz
 # Source0-md5:	fa5ea2bb996c624133368a87206d72af
+Patch0:		CVE-2026-113351.patch
+Patch1:		CVE-2026-117610.patch
+Patch2:		CVE-2026-118370.patch
+Patch3:		CVE-2026-115506.patch
 URL:		http://www.libexpat.org/
 BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake >= 1:1.13
@@ -134,6 +139,10 @@ Programy narzędziowe do biblioteki Expat:
 
 %prep
 %setup -q
+%patch -P0 -p2
+%patch -P1 -p2
+%patch -P2 -p2
+%patch -P3 -p2
 
 %build
 %{__libtoolize}
@@ -148,11 +157,18 @@ Programy narzędziowe do biblioteki Expat:
 	%{!?with_static_libs:--disable-static}
 %{__make}
 
+%if %{with tests}
+%{__make} check
+%endif
+
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+# packaged as %doc
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}
 
 install -d $RPM_BUILD_ROOT%{_aclocaldir}
 
